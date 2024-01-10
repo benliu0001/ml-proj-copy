@@ -1,0 +1,142 @@
+% Ian Huang - PSET Preamble version 2 - Base Preamble version 1c
+
+% GENERAL USE PACKAGES
+\usepackage[table,xcdraw]{xcolor} % must be imported first
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[margin=1truein]{geometry}
+\usepackage{tikz}
+\usepackage{enumitem}
+\usepackage{physics}
+\usepackage{cancel}
+\usepackage{multicol}
+\usepackage{amsthm}
+\usepackage{scrextend}
+
+\usepackage{enumitem}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+}
+
+% GRAPHING
+\usepackage{graphicx}
+\usepackage{pgfplots}
+\pgfplotsset{soldot/.style={only marks,mark=*},
+             holdot/.style={fill=white,only marks,mark=*},
+             compat=1.12}
+\usepgfplotslibrary{fillbetween}
+
+% TCOLORBOX
+\usepackage{tcolorbox}
+\usepackage{etoolbox} % used for the \isempty command
+\usepackage{xifthen} % used for \ifthenelse
+\usepackage{enumitem}  
+\tcbuselibrary{breakable}
+
+\definecolor{_orange}{HTML}{fc8e3a}
+\definecolor{_orange2}{HTML}{fff5ed}
+\definecolor{_blue}{HTML}{519aed}
+\definecolor{_blue2}{HTML}{e8f3ff}
+\definecolor{_purple}{HTML}{a571eb}
+\definecolor{_purple2}{HTML}{f2e8ff}
+\definecolor{_grey}{HTML}{3b3b3b}
+\definecolor{_grey2}{HTML}{f2f2f2}
+
+% definitions, theorems, examples, asides
+\newcounter{example}
+\counterwithin*{example}{section}
+
+\newenvironment{definition}[1][]{\begin{tcolorbox}[colframe=_orange,colback=_orange2,title=Definition. \ifthenelse{\isempty{#1}}{}{(#1)}
+]}{\end{tcolorbox}}
+\newenvironment{theorem}[1][]{\begin{tcolorbox}[colframe=_blue,colback=_blue2,title=Theorem. \ifthenelse{\isempty{#1}}{}{(#1)}
+]}{\end{tcolorbox}}
+\newenvironment{lemma}[1][]{\begin{tcolorbox}[colframe=_purple,colback=_purple2,title=Lemma. \ifthenelse{\isempty{#1}}{}{(#1)}
+]}{\end{tcolorbox}}
+\newenvironment{example}{\begin{tcolorbox}[colframe=_grey,colback=white,arc=2pt,outer arc=2pt,boxrule=1pt,breakable]\stepcounter{example}\textbf{Example~\thesection.\theexample.}
+    \spacer}{\end{tcolorbox}}
+\newenvironment{aside}{\begin{tcolorbox}[colframe=white,colback=_grey2,arc=0pt,outer arc=0pt,breakable]}{\end{tcolorbox}}
+
+% SET MACROS
+\def\Z{{\mathbb Z}}
+\def\Q{{\mathbb Q}}
+\def\R{{\mathbb R}}
+\def\C{{\mathbb C}}
+\def\N{{\mathbb N}}
+
+\newcommand{\mat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+
+% SECTION CONFIG
+\usepackage{sectsty}
+\usepackage{scrextend}
+
+\sectionfont{\Large}
+\subsectionfont{\large}
+\subsubsectionfont{\large}
+\paragraphfont{\normalsize}
+
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+\setcounter{section}{0}
+
+% MISC CONFIG
+\setlength{\parindent}{0pt}
+\renewcommand{\baselinestretch}{1.2}
+
+% HEADER CONFIG
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\rhead{University of Toronto}
+\lhead{\documenttitle}
+
+% Colored "TRUE" and "FALSE" elements
+\newcommand{\true}{\textbf{\textcolor[HTML]{26de57}{TRUE}}}
+\newcommand{\false}{\textbf{\textcolor[HTML]{f54242}{FALSE}}}
+
+% COUNTERS
+
+\newcounter{mycounter}[section]
+
+% MISC MACROS
+\usepackage{mathtools}
+% utility Macros
+\newcommand{\hr}{\par\noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}\par\vspace{0.1in}}
+\renewenvironment{proof}{\par\textit{\textbf{Proof.}}}{\hfill$\blacksquare$}
+\newcommand{\suchthat}{~~\text{s.t.}~~}
+\newcommand{\spacer}[0]{\par\vspace{0.1in}}
+\newcommand{\todo}{\par{\color{red} \textbf{TODO}: Write this}\par}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\veps}{\varepsilon}
+\newcommand{\minisec}[1]{\par\vspace{0.1in}\textbf{#1}\par\vspace{0.05in}} % H4 or subsubsubsection or mini-section
+\newcommand{\wideand}{\quad\text{and}\quad}
+\newcommand{\wideor}{\quad\text{or}\quad}
+\newcommand{\dne}{\,\text{DNE}}
+\newcommand{\dynset}[1]{\left\{#1\right\}} % "dynamic set"
+\newcommand{\seq}[1]{\left\{#1_n\right\}}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+% PSET use only
+
+\renewcommand{\maketitle}{
+    \begin{center}
+        {\LARGE \documenttitle}
+        
+        \vspace{0.1in}
+        
+        {\large \documentauthor}
+    \end{center}
+}
+
+\renewenvironment{indent}{\begin{addmargin}[1.5em]{0em}}{\end{addmargin}}
+
+\newcommand{\len}[1]{\text{len}(#1)}
+
+\renewcommand{\thefootnote}{[\arabic{footnote}]}
+\renewcommand{\O}{\mathcal O}

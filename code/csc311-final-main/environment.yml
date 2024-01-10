@@ -1,0 +1,19 @@
+name: csc311
+channels:
+- pytorch
+- conda-forge
+- defaults
+dependencies:
+- python=3.11
+- numpy
+- scipy
+- autograd
+- matplotlib
+- jupyter
+- pandas
+- scikit-learn
+- pytorch::pytorch
+- torchvision
+- torchaudio
+# Others; not included in the standard CSC311 environment
+- tqdm
